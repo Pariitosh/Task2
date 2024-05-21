@@ -9,8 +9,8 @@
 </head>
 <body>
     <main class="main">
-        <nav class="navbar-wrapper">
-            <div class="navbar">
+        <nav  class="navbar-wrapper">
+            <div id="navigation" class="navbar">
                 <img class="navimg" src="title.png">
                 <div class="nav-options">
                     <p>Home</p>
@@ -22,7 +22,7 @@
 
         <section class="desc-wrapper">
             <div class="desc-inner"> 
-                <div class="desc">
+                <div id="desc" class="desc">
                     <h1>A New era for</h1>
                     <h2>Token Launches</h2>
                     <p1>A modular launch and liquidity protocol, revolutionising token launches, and supporting innovation across Cosmos and up-and-coming Layers.</p1>
@@ -32,23 +32,8 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="socials-wrapper">
-            <div class="socials-inner">
-                <div class="socials">
-                    <p1>Reach us on</p1>
-                    <div class="socials-btn"><img class="social-img" src="twitter.png"><p2>1.2k+</p2></div>
-                    <div class="socials-btn"><img class="social-img" src="discord.png"><p2>202k+</p2></div>
-                    <div class="socials-btn"><img class="social-img" src="telegram.png"><p2>13k +</p2></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="main2" class="main2">
-        <div class="main-inner">
-            <div class="main-inner-inner">
+            <div id="inn" class="main-inner-inner">
                 <h1>A Liquidity Hub for the Future of</h1>
                 <h2>Community Token Distributions</h2>
                 <p>Token launches are crucial in Web3, but current solutions are flawed, prioritizing short-term gains over long-term user alignment. Eclipse Fi is a leading multi-chain launch platform (with a focus on Cosmos and rising EVM L2s) designed to solve this. We offer a toolkit that attracts long-term users, and our smart accounts and cross-chain architecture make onboarding and launches seamless</p>
@@ -58,14 +43,27 @@
                     <img src="pic2.png">
                 </div>
             </div>
-            <img class="launchbtn" src="launchbtn.png">
-        </div>
+        </section>
+
+        <section class="socials-wrapper">
+            <div class="socials-inner">
+                <div id="socials" class="socials">
+                    <p1>Reach us on</p1>
+                    <div class="socials-btn"><img class="social-img" src="twitter.png"><p2>1.2k+</p2></div>
+                    <div class="socials-btn"><img class="social-img" src="discord.png"><p2>202k+</p2></div>
+                    <div class="socials-btn"><img class="social-img" src="telegram.png"><p2>13k +</p2></div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    
     
         <img class="title" src="title.png">
-        <img class="earth" src="Earth.png">
-        <img class="moon" src="Moon.png">
+        <img id="earth" class="earth" src="Earth.png">
+        <img id="moon" onclick="moonClicked()" class="moon" src="Moon.png">
         <img class="sun" src="Sun.png">
+        <img id="launch" class="launchbtn" src="launchbtn.png">
         <img class="scroll" src="scroll.png">
         <div class="loading-bar">
             <div class="loading-white"></div>
@@ -73,10 +71,44 @@
         </div>
 
         <script>
-            setTimeout(() => {
-                document.getElementById('main2').style.display="flex"
+            function moonClicked(){
                 
-            }, 6000);
+
+                let launch=document.getElementById("launch")
+                launch.style.transition='0.5s'
+                launch.style.opacity=1;
+
+                let nav=document.getElementById("navigation")
+                nav.style.transition='0.5s'
+                nav.style.opacity=0;
+
+                let social=document.getElementById("socials")
+                social.style.transition='0.5s'
+                social.style.opacity=0;
+
+                let desc=document.getElementById("desc")
+                desc.style.transition='0.5s'
+                desc.style.opacity=0;
+
+                let moon=document.getElementById("moon")
+                moon.style.transition='0.5s'
+                //moon.style.top='90%'
+                //moon.style.left='10%'
+                setTimeout(() => {
+                let inn=document.getElementById("inn")
+                inn.style.transition='0.5s'
+                inn.style.opacity=1;
+                }, 500);
+                console.log('c')
+                
+            let m=document.getElementById('moon')
+            m.classList.add('animate')
+            m.style.animation='m 2s forwards';
+
+            let e=document.getElementById('earth')
+            e.classList.add('animate')
+            e.style.animation='e 2s forwards';
+            }
             for (let i =0;i<=50;i++){
                 const stars=document.createElement('div')
                 const height=Math.floor(Math.random()*100)
